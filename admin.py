@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group, User
 from django.utils.translation import gettext_lazy as _
 
-from .models import Choice, Question, Submission
+from .models import Choice, Course, Instructor, Learner, Lesson, Question, Submission
 
 
 class QuestionInline(admin.TabularInline):
@@ -28,6 +28,10 @@ class LessonAdmin(admin.ModelAdmin):
     ordering = ("order",)
 
 
+admin.site.register(Course)
+admin.site.register(Lesson, LessonAdmin)
+admin.site.register(Instructor)
+admin.site.register(Learner)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
 admin.site.register(Submission)
